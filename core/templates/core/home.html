@@ -1,13 +1,30 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Puente de Roca</title>
-</head>
-<body>
-    <h1>Puente de Roca</h1>
-    <p>Este es el sitio web del Puente de Roca.</p>
-    
-</body>
-</html>
+{% extends "core/base.html" %}
+{% block title %}Puente de Roca · Inicio{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <h1>Escalada indoor para todos los niveles</h1>
+  <p>Boulder, cuerda, clases de iniciación y entreno. Ven a escalar hoy.</p>
+  <a class="cta" href="{% url 'reservar' %}">Reservar</a>
+  <a class="btn" href="{% url 'precios' %}">Ver precios</a>
+</section>
+
+<section class="grid">
+  <div class="card col-6">
+    <h3>Boulder</h3>
+    <p>Bloques para todos los niveles, set nuevo con frecuencia.</p>
+  </div>
+  <div class="card col-6">
+    <h3>Cuerda</h3>
+    <p>Vías. Consulta requisitos.</p>
+  </div>
+  <div class="card col-6">
+    <h3>Clases</h3>
+    <p>Iniciación, técnica, entrenamiento y grupos.</p>
+  </div>
+  <div class="card col-6">
+    <h3>Kids</h3>
+    <p>Escuela y actividades para peques (según edades).</p>
+  </div>
+</section>
+{% endblock %}

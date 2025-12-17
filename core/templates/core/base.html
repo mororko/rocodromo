@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Puente de Roca{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/styles.css' %}">
+</head>
+<body>
+    {% if active_notice %}
+      <div class="notice">
+        <strong>{{ active_notice.title }}</strong>
+        {% if active_notice.body %}<span> — {{ active_notice.body }}</span>{% endif %}
+      </div>
+    {% endif %}
+
+    <header class="header">
+      <div class="container header__inner">
+        <a class="brand" href="{% url 'home' %}">Puente de Roca</a>
+
+        <nav class="nav">
+          <a href="{% url 'instalaciones' %}">Instalaciones</a>
+          <a href="{% url 'horarios' %}">Horarios</a>
+          <a href="{% url 'precios' %}">Precios</a>
+          <a href="{% url 'contacto' %}">Contacto</a>
+        </nav>
+
+        <a class="cta" href="{% url 'reservar' %}">Reservar</a>
+      </div>
+    </header>
+
+    <main class="container">
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <small>© {% now "Y" %} Puente de Roca · Hecho por Techbrews</small>
+      </div>
+    </footer>
+    
+</body>
+</html>
