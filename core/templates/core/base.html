@@ -19,14 +19,18 @@
       <div class="container header__inner">
         <a class="brand" href="{% url 'home' %}">Puente de Roca</a>
 
-        <nav class="nav">
+        <button class="menuBtn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="siteNav">
+        ☰
+        </button>
+
+        <nav class="nav" id="siteNav">
           <a href="{% url 'instalaciones' %}">Instalaciones</a>
           <a href="{% url 'horarios' %}">Horarios</a>
           <a href="{% url 'precios' %}">Precios</a>
           <a href="{% url 'contacto' %}">Contacto</a>
         </nav>
 
-        <a class="cta" href="{% url 'reservar' %}">Reservar</a>
+        <!-- <a class="cta" href="{% url 'reservar' %}">Reservar</a> -->
       </div>
     </header>
 
@@ -39,6 +43,19 @@
         <small>© {% now "Y" %} Puente de Roca · Hecho por Techbrews</small>
       </div>
     </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const btn = document.querySelector(".menuBtn");
+        const nav = document.querySelector("#siteNav");
+        if (!btn || !nav) return;
+
+        btn.addEventListener("click", function () {
+          const isOpen = nav.classList.toggle("nav--open");
+          btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        });
+      });
+    </script>
     
 </body>
 </html>
